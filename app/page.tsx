@@ -206,10 +206,10 @@ export default function LandingPage() {
             <div className="max-w-4xl mx-auto">
               <h1 className="text-6xl md:text-8xl tracking-tighter leading-[1.05] mb-8">
                 <motion.span
-                  initial={{ opacity: 0, backdropFilter: 'blur(30px)' }}
-                  whileInView={{ opacity: 1, y: 0, backdropFilter: 'blur(0px)' }}
+                  initial={{ opacity: 0, y:20 }}
+                  whileInView={{ opacity: 1, y: 0,  }}
                   viewport={{ once: true }}
-                  transition={{ duration: 2, ease: easeOut }}
+                  transition={{ duration: 0.8, ease: easeOut }}
                   className="inline-block mr-4 bg-linear-to-r from-[#041723] to-[#08455b] bg-clip-text text-transparent"
                 >
                   Vista sua marca com qualidade
