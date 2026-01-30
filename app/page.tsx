@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Check, ChevronLeft, ChevronRight, Menu, X } from 'lucide-react'
+import { ArrowRight, Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
@@ -26,7 +26,6 @@ const staggerContainer = {
 }
 
 export default function LandingPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const heroRef = useRef<HTMLElement>(null)
 
@@ -46,13 +45,6 @@ export default function LandingPage() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const navLinks = [
-    { name: 'Início', href: '#home' },
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Diferenciais', href: '#diferenciais' },
-    { name: 'Produtos', href: '#produtos' },
-  ]
 
   // Carousel Component
   function CarouselSection() {
@@ -141,57 +133,10 @@ export default function LandingPage() {
             komotex<span className="text-black">.</span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href}
-                className="text-sm font-medium hover:text-gray-600 transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
-              Entrar em contato
-            </Button>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
+          <Button className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
+            Entrar em contato
+          </Button>
         </div>
-
-        {/* Mobile Nav */}
-        {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden p-6 flex flex-col gap-4"
-          >
-            {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href}
-                className="text-lg font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button className="w-full mt-2 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
-              Entrar em contato
-            </Button>
-          </motion.div>
-        )}
       </header>
       
       <main className="flex-1">
