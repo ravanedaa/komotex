@@ -25,13 +25,6 @@ const staggerContainer = {
   }
 }
 
-const wordVariants = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: easeOut }
-}
-
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -163,7 +156,7 @@ export default function LandingPage() {
                 {link.name}
               </Link>
             ))}
-            <Button className="rounded-full px-6 bg-gradient-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
+            <Button className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
               Entrar em contato
             </Button>
           </nav>
@@ -228,7 +221,7 @@ export default function LandingPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
-                <Button size="lg" className="rounded-full text-lg px-8 py-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] text-white font-unbounded">
+                <Button className="rounded-full text-lg px-8 py-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] text-white font-unbounded">
                   Entrar em contato <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <div className="bg-gray-100 border border-gray-200 text-gray-800 px-6 py-3 rounded-full font-medium inline-flex items-center justify-center">
@@ -358,7 +351,7 @@ export default function LandingPage() {
                {/* Card 1 */}
                <motion.div 
                   whileHover={{ y: -10 }}
-                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm h-[500px]"
+                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm h-125"
                 >
                   <div className="absolute inset-0 bg-gray-200">
                     <Image
@@ -381,7 +374,7 @@ export default function LandingPage() {
                  {/* Card 2 */}
                <motion.div 
                   whileHover={{ y: -10 }}
-                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm h-[500px]"
+                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm h-125"
                 >
                   <div className="absolute inset-0 bg-gray-900">
                     <Image
@@ -390,7 +383,7 @@ export default function LandingPage() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
                   </div>
                    <div className="absolute bottom-0 p-8 text-white w-full">
                     <h3 className="text-2xl font-bold mb-2 tracking-tighter">Executive Line</h3>
@@ -404,7 +397,7 @@ export default function LandingPage() {
                  {/* Card 3 */}
                <motion.div 
                   whileHover={{ y: -10 }}
-                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm h-[500px]"
+                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm h-125"
                 >
                   <div className="absolute inset-0 bg-gray-900">
                      <Image
@@ -413,7 +406,7 @@ export default function LandingPage() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
                   </div>
                   <div className="absolute bottom-0 p-8 text-white w-full">
                     <h3 className="text-2xl font-bold mb-2 tracking-tighter">Tech Performance</h3>
@@ -487,7 +480,7 @@ export default function LandingPage() {
                   Solicite um orçamento personalizado hoje e garanta condições exclusivas para pedidos empresariais.
                 </p>
                 <div className="flex justify-center">
-                  <Button size="lg" className="h-14 rounded-full bg-white text-gray-950 hover:bg-gray-100 text-lg px-8 font-bold transition-all hover:scale-105 font-unbounded">
+                  <Button className="h-14 rounded-full bg-white text-gray-950 hover:bg-gray-100 text-lg px-8 font-bold transition-all hover:scale-105 font-unbounded">
                     Entrar em contato
                   </Button>
                 </div>
