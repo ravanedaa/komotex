@@ -503,10 +503,16 @@ export default function LandingPage() {
               <span className="block md:inline mt-2 md:mt-0">Desenvolvido com excelência.</span>
             </div>
             
-            <div className="flex gap-8">
-               <a href="#" className="text-gray-500 hover:text-black transition-colors font-medium">Instagram</a>
-               <a href="#" className="text-gray-500 hover:text-black transition-colors font-medium">LinkedIn</a>
-               <a href="#" className="text-gray-500 hover:text-black transition-colors font-medium">WhatsApp</a>
+            <div className="flex gap-6">
+              <a href="#" className="text-gray-500 hover:text-black transition-colors opacity-70 hover:opacity-100" aria-label="Instagram">
+                <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} />
+              </a>
+              <a href="#" className="text-gray-500 hover:text-black transition-colors opacity-70 hover:opacity-100" aria-label="LinkedIn">
+                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} />
+              </a>
+              <a href="#" className="text-gray-500 hover:text-black transition-colors opacity-70 hover:opacity-100" aria-label="WhatsApp">
+                <Image src="/icons/whatsapp.svg" alt="WhatsApp" width={24} height={24} />
+              </a>
             </div>
           </div>
         </div>
