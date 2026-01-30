@@ -124,8 +124,8 @@ export default function LandingPage() {
       {/* Header */}
       <header 
         className={cn(
-          "fixed top-0 w-full z-50 transition-all duration-300",
-          scrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+          "fixed top-0 w-full z-50 transition-all duration-300 py-6",
+          scrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
