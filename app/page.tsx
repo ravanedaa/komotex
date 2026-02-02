@@ -392,6 +392,217 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Processes Section */}
+        <section id="processos" className="py-24 bg-gray-50">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div 
+              {...fadeInUp}
+              className="text-center max-w-2xl mx-auto mb-16"
+            >
+              <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-black uppercase bg-gray-100 rounded-full">
+                Tecnologia de Ponta
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Nossos Processos</h2>
+              <p className="text-gray-600">Conheça as diferentes técnicas de personalização que elevam seus uniformes ao próximo nível.</p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Process 1 - Serigrafia */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+              >
+                <div className="p-8 flex-1">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
+                    01
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 tracking-tighter">Impressão em Tela (Serigrafia)</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Método tradicional de estamparia, onde a tinta é aplicada através de uma tela com o desenho. Ideal para designs bold e cores vibrantes.
+                  </p>
+                </div>
+                <div className="px-8 pb-8">
+                  <div className="relative w-full h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/assets/serigrafia.jpg"
+                      alt="Impressão em Tela"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Process 2 - Bordado */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.2 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+              >
+                <div className="p-8 flex-1">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
+                    02
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 tracking-tighter">Bordado</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Personalização usando linhas para costurar o desenho diretamente na peça. Transmite sofisticação e durabilidade excepcional.
+                  </p>
+                </div>
+                <div className="px-8 pb-8">
+                  <div className="relative w-full h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/assets/bordado.webp"
+                      alt="Bordado"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Process 3 - DTF */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.4 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+              >
+                <div className="p-8 flex-1">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
+                    03
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 tracking-tighter">Impressão Digital (DTF)</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Impressão do desenho em um filme especial, depois transferido para o tecido com o calor. Perfeito para designs complexos e detalhados.
+                  </p>
+                </div>
+                <div className="px-8 pb-8">
+                  <div className="relative w-full h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/assets/digital.jpg"
+                      alt="Impressão Digital DTF"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Process 4 - DTG */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.6 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+              >
+                <div className="p-8 flex-1">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
+                    04
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 tracking-tighter">Impressão Direta (DTG)</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Impressora especial que aplica a tinta diretamente no tecido, igual uma impressora de papel. Resultado fotográfico com máxima qualidade.
+                  </p>
+                </div>
+                <div className="px-8 pb-8">
+                  <div className="relative w-full h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/assets/dtg.webp"
+                      alt="Impressão Direta DTG"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* 3 Steps Section */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div 
+              {...fadeInUp}
+              className="text-center max-w-2xl mx-auto mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Como Funciona</h2>
+              <p className="text-gray-600">Três etapas simples para transformar sua visão em uniformes de qualidade premium.</p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {/* Step 1 - Blanks */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="relative"
+              >
+                <div className="bg-gray-50 rounded-2xl p-8 h-full">
+                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg">
+                    1
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Blanks</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Na primeira etapa, oferecemos peças lisas em diversas opções de cores e estilos. Com uma quantidade mínima de apenas 12 peças por modelo e um prazo de produção rápido de dois dias úteis, você pode começar a personalizar suas peças facilmente.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Step 2 - Personalização */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.2 }}
+                className="relative md:mt-8"
+              >
+                <div className="bg-linear-to-br from-[#041723] to-[#08455b] rounded-2xl p-8 h-full text-white shadow-lg">
+                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#041723] font-bold text-3xl mb-6">
+                    2
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Personalização</h3>
+                  <p className="leading-relaxed">
+                    Nesta etapa, você pode transformar os blanks em peças únicas que refletem a sua marca, utilizando serviços de serigrafia, bordado, DTF e aplicações. Com uma quantidade mínima de 30 peças por modelo e um prazo de produção de apenas 15 dias, a personalização se torna fácil e rápida.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Step 3 - Desenvolvimento */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.4 }}
+                className="relative"
+              >
+                <div className="bg-gray-50 rounded-2xl p-8 h-full">
+                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg">
+                    3
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Desenvolvimento</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Nesta fase, oferecemos o desenvolvimento completo de coleções, utilizando técnicas como pesquisa de tendências, modelagem, plotagem, corte, costura, tingimento e aplicações. Com uma quantidade mínima de 100 peças por modelo e prazos de produção eficientes, sua visão se tornará realidade em pouco tempo.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Carousel Section */}
         <section className="py-24 bg-white">
           <div className="container mx-auto px-4 md:px-6">
