@@ -243,7 +243,7 @@ export default function LandingPage() {
                 className="relative aspect-square rounded-2xl overflow-hidden max-h-125 shadow-lg "
               >
                   <Image
-                    src="/assets/showcase04.jpg" 
+                    src="/assets/showcase02.jpg" 
                     alt="Uniforme de qualidade Komotex"
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-700"
@@ -306,7 +306,7 @@ export default function LandingPage() {
                 >
                   <div className="absolute inset-0 bg-gray-200">
                     <Image
-                      src="/assets/showcase02.jpg"
+                      src="/assets/camisa01.jpeg"
                       alt="Detalhe de manga oversized"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -314,7 +314,7 @@ export default function LandingPage() {
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80" />
                   </div>
                   <div className="absolute bottom-0 p-8 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Oversized Basic</h3>
+                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Básica Oversized</h3>
                     <p className="opacity-90 mb-4 text-sm text-gray-200">Corte moderno e confortável para o dia a dia corporativo.</p>
                     <div className="flex items-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                       Ver detalhes <ArrowRight size={16} className="ml-2" />
@@ -337,7 +337,7 @@ export default function LandingPage() {
                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
                   </div>
                    <div className="absolute bottom-0 p-8 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Executive Line</h3>
+                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Linha Executiva</h3>
                     <p className="opacity-90 mb-4 text-sm text-gray-200">Sofisticação para lideranças e times comerciais.</p>
                     <div className="flex items-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                       Ver detalhes <ArrowRight size={16} className="ml-2" />
@@ -360,7 +360,7 @@ export default function LandingPage() {
                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
                   </div>
                   <div className="absolute bottom-0 p-8 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Tech Performance</h3>
+                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Linha Básica</h3>
                     <p className="opacity-90 mb-4 text-sm text-gray-200">Tecidos inteligentes que não precisam passar.</p>
                     <div className="flex items-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                       Ver detalhes <ArrowRight size={16} className="ml-2" />
