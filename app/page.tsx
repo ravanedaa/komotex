@@ -49,6 +49,8 @@ export default function LandingPage() {
   // Carousel Component
   function CarouselSection() {
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [isLoading, setIsLoading] = useState(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const images = [
       "/assets/case01.jpeg",
       "/assets/case02.jpeg",
@@ -58,6 +60,18 @@ export default function LandingPage() {
       "/assets/case06.jpeg",
       "/assets/case07.jpeg"
     ]
+
+    // Preload next image
+    useEffect(() => {
+      const nextIdx = (currentSlide + 1) % images.length
+      if (typeof window !== 'undefined') {
+        const link = document.createElement('link')
+        link.rel = 'prefetch'
+        link.as = 'image'
+        link.href = images[nextIdx]
+        document.head.appendChild(link)
+      }
+    }, [currentSlide, images])
 
     const nextSlide = () => {
       setCurrentSlide((prev) => (prev + 1) % images.length)
@@ -75,6 +89,10 @@ export default function LandingPage() {
         transition={{ duration: 1.4 }}
         className="relative w-full max-w-xl mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gray-100"
       >
+        {/* Skeleton Loader */}
+        {isLoading && (
+          <div className="absolute inset-0 bg-gray-300 animate-pulse z-10" />
+        )}
 
           <Image
             src={images[currentSlide]}
@@ -82,6 +100,9 @@ export default function LandingPage() {
             fill
             className="object-cover"
             sizes="100vw"
+            priority={currentSlide === 0}
+            onLoadingComplete={() => setIsLoading(false)}
+            onLoadStart={() => setIsLoading(true)}
           />
 
         {/* Left Arrow */}
