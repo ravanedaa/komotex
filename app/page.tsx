@@ -409,11 +409,11 @@ export default function LandingPage() {
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {/* Process 1 - Serigrafia */}
               <motion.div 
-                initial="initial"
-                whileInView="whileInView"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                variants={fadeInUp}
-                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+                transition={{ duration: 0.6 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg flex flex-col"
               >
                 <div className="p-8 flex-1">
                   <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
@@ -438,12 +438,11 @@ export default function LandingPage() {
 
               {/* Process 2 - Bordado */}
               <motion.div 
-                initial="initial"
-                whileInView="whileInView"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                variants={fadeInUp}
-                transition={{ delay: 0.2 }}
-                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg flex flex-col"
               >
                 <div className="p-8 flex-1">
                   <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
@@ -468,12 +467,11 @@ export default function LandingPage() {
 
               {/* Process 3 - DTF */}
               <motion.div 
-                initial="initial"
-                whileInView="whileInView"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                variants={fadeInUp}
-                transition={{ delay: 0.4 }}
-                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg flex flex-col"
               >
                 <div className="p-8 flex-1">
                   <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
@@ -498,12 +496,11 @@ export default function LandingPage() {
 
               {/* Process 4 - DTG */}
               <motion.div 
-                initial="initial"
-                whileInView="whileInView"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                variants={fadeInUp}
-                transition={{ delay: 0.6 }}
-                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg flex flex-col"
               >
                 <div className="p-8 flex-1">
                   <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
