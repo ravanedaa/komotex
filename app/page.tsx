@@ -49,7 +49,15 @@ export default function LandingPage() {
   // Carousel Component
   function CarouselSection() {
     const [currentSlide, setCurrentSlide] = useState(0)
-    const images = ["/camisa.png", "/camisa2.png", "/camisa3.png", "/camisa3.png"]
+    const images = [
+      "/assets/case01.jpeg",
+      "/assets/case02.jpeg",
+      "/assets/case03.jpeg",
+      "/assets/case04.jpeg",
+      "/assets/case05.jpeg",
+      "/assets/case06.jpeg",
+      "/assets/case07.jpeg"
+    ]
 
     const nextSlide = () => {
       setCurrentSlide((prev) => (prev + 1) % images.length)
@@ -65,24 +73,16 @@ export default function LandingPage() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.4 }}
-        className="relative w-full max-w-2xl mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gray-100"
+        className="relative w-full max-w-xl mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gray-100"
       >
-        {/* Image Container */}
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="w-full h-full"
-        >
+
           <Image
             src={images[currentSlide]}
-            alt={`Uniforme ${currentSlide + 1}`}
+            alt={`Case ${currentSlide + 1}`}
             fill
             className="object-cover"
             sizes="100vw"
           />
-        </motion.div>
 
         {/* Left Arrow */}
         <button
@@ -129,8 +129,14 @@ export default function LandingPage() {
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/" className="font-bold text-2xl tracking-tighter">
-            komotex<span className="text-black">.</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/assets/logoNoBackgroundBlack.png"
+              alt="Komotex Logo"
+              width={80}
+              height={28}
+              className="object-contain"
+            />
           </Link>
 
           <Button className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
@@ -179,7 +185,7 @@ export default function LandingPage() {
           {/* Parallax T-shirt - Absolute */}
           <motion.div 
             style={{ y: camisaY }}
-            className="absolute -bottom-120 md:-bottom-200 left-1/2 -translate-x-1/2 size-150 md:size-275 pointer-events-none z-40"
+            className="absolute -bottom-120 md:-bottom-220 left-1/2 -translate-x-1/2 size-150 md:size-275 pointer-events-none z-40"
           >
             <Image
               src="/hero-tshirt.png"
@@ -229,16 +235,16 @@ export default function LandingPage() {
 
         {/* Value Proposition Section */}
         <section id="sobre" className="py-24 bg-white relative">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="container mx-auto px-4 md:px-6 ">
+            <div className="grid md:grid-cols-2 gap-16 items-center justify-center">
               <motion.div 
                 {...fadeInUp}
                 transition={{ duration: 0.8 }}
-                className="relative h-125 md:h-175 rounded-2xl overflow-hidden"
+                className="relative aspect-square rounded-2xl overflow-hidden max-h-125 shadow-lg "
               >
                   <Image
-                    src="/camisa2.png" 
-                    alt="Tecido tecnológico Komotex flutuando"
+                    src="/assets/showcase04.jpg" 
+                    alt="Uniforme de qualidade Komotex"
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-700"
                   />
@@ -300,7 +306,7 @@ export default function LandingPage() {
                 >
                   <div className="absolute inset-0 bg-gray-200">
                     <Image
-                      src="/camisa3.png"
+                      src="/assets/showcase02.jpg"
                       alt="Detalhe de manga oversized"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -323,7 +329,7 @@ export default function LandingPage() {
                 >
                   <div className="absolute inset-0 bg-gray-900">
                     <Image
-                      src="/camisa2.png"
+                      src="/assets/showcase03.jpg"
                       alt="Camiseta Executive Line"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -346,7 +352,7 @@ export default function LandingPage() {
                 >
                   <div className="absolute inset-0 bg-gray-900">
                      <Image
-                      src="/camisa.png"
+                      src="/assets/showcase01.jpg"
                       alt="Camiseta Tech Performance"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -366,8 +372,16 @@ export default function LandingPage() {
         </section>
 
         {/* Carousel Section */}
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 bg-white">
           <div className="container mx-auto px-4 md:px-6">
+            
+            <motion.div 
+              {...fadeInUp}
+              className="text-center max-w-2xl mx-auto mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Nossos Cases de Sucesso</h2>
+              <p className="text-gray-600">Conheça empresas que já vestem nossa qualidade e fortalecem sua marca com nossos uniformes personalizados.</p>
+            </motion.div>
 
             {/* Carousel with State */}
             <CarouselSection />
@@ -408,7 +422,6 @@ export default function LandingPage() {
                 alt="Background"
                 fill
                 className="object-cover"
-                quality={100}
               />
               {/* Dark overlay for text readability */}
               <div className="absolute inset-0 bg-black/40"></div>
@@ -438,8 +451,14 @@ export default function LandingPage() {
       <footer className="bg-gray-50 py-12 border-t border-gray-100">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-2xl font-bold tracking-tighter">
-              komotex<span className="text-black">.</span>
+            <div>
+              <Image
+                src="/assets/logoNoBackgroundBlack.png"
+                alt="Komotex Logo"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
             </div>
             
             <div className="text-sm text-gray-500 text-center md:text-left">
