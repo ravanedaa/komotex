@@ -134,7 +134,7 @@ export default function LandingPage() {
           </Link>
 
           <Button className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
-            Entrar em contato
+            Solicitar orçamento agora
           </Button>
         </div>
       </header>
@@ -162,16 +162,13 @@ export default function LandingPage() {
               </h1>
               
               <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-                Uniformes corporativos que fortalecem a identidade da sua empresa e transmitem profissionalismo em cada detalhe.
+                Produção própria, tecidos duráveis e personalização completa para sua empresa.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
                 <Button className="rounded-full text-lg px-8 py-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] text-white font-unbounded">
-                  Entrar em contato <ArrowRight className="ml-2 w-5 h-5" />
+                  Solicitar orçamento agora <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-                <div className="bg-gray-100 border border-gray-200 text-gray-800 px-6 py-3 rounded-full font-medium inline-flex items-center justify-center">
-                  <span className="text-black font-bold mr-2">20% OFF</span> no primeiro pedido
-                </div>
               </div>
             </div>
           </div>
@@ -210,15 +207,15 @@ export default function LandingPage() {
               {[...Array(10)].map((_, i) => (
                 <div key={i} className="flex items-center gap-8">
                   <span className="text-white font-bold text-lg tracking-tight">
-                    20% OFF NO PRIMEIRO PEDIDO
+                    DESCONTO ESPECIAL + ORÇAMENTO EM ATÉ 24H
                   </span>
                   <span className="text-white/40">•</span>
                   <span className="text-white font-bold text-lg tracking-tight">
-                    PEDIDOS A PARTIR DE 30 PEÇAS
+                    PRODUÇÃO RÁPIDA
                   </span>
                   <span className="text-white/40">•</span>
                   <span className="text-white font-bold text-lg tracking-tight">
-                    ENTREGA PARA TODO BRASIL
+                    ENTREGA NACIONAL
                   </span>
                   <span className="text-white/40">•</span>
                 </div>
@@ -289,7 +286,7 @@ export default function LandingPage() {
               className="text-center max-w-2xl mx-auto mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Soluções Personalizadas</h2>
-              <p className="text-gray-600">Elegância e conforto em cada detalhe. Conheça nossas linhas.</p>
+              <p className="text-gray-600">Técnicas avançadas que valorizam sua marca em cada ponto e cor.</p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -380,19 +377,19 @@ export default function LandingPage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
                 <div className="space-y-2 p-4">
                    <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-white">+500</h3>
-                   <p className="text-white/80 font-medium">Empresas atendidas</p>
+                   <p className="text-white/80 font-medium">Equipes uniformizadas com padrão e consistência</p>
                 </div>
                  <div className="space-y-2 p-4">
                    <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-white">100%</h3>
-                   <p className="text-white/80 font-medium">Algodão sustentável</p>
+                   <p className="text-white/80 font-medium">Tecidos selecionados para conforto, durabilidade e uso diário</p>
                 </div>
                  <div className="space-y-2 p-4">
                    <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-white">2026</h3>
-                   <p className="text-white/80 font-medium">Coleção Future</p>
+                   <p className="text-white/80 font-medium">Produção própria com controle de qualidade em cada etapa</p>
                 </div>
                  <div className="space-y-2 p-4">
                    <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-white">BR</h3>
-                   <p className="text-white/80 font-medium">Entrega nacional</p>
+                   <p className="text-white/80 font-medium">Entrega segura e atendimento para todo o Brasil</p>
                 </div>
               </div>
            </div>
@@ -426,7 +423,7 @@ export default function LandingPage() {
                 </p>
                 <div className="flex justify-center">
                   <Button className="h-14 rounded-full bg-white text-gray-950 hover:bg-gray-100 text-lg px-8 font-bold transition-all hover:scale-105 font-unbounded">
-                    Entrar em contato
+                    Solicitar orçamento agora
                   </Button>
                 </div>
               </motion.div>

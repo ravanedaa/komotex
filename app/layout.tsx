@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "KomoTex | Uniformes Corporativos Premium",
-  description: "Vista sua marca com qualidade. Uniformes corporativos que fortalecem a identidade da sua empresa e transmitem profissionalismo.",
+  description: "Vista sua marca com qualidade. Produção própria, tecidos duráveis e personalização completa para sua empresa.",
   keywords: "uniformes corporativos, uniformes personalizados, roupa para empresas, branding visual, moda corporativa",
   openGraph: {
     title: "KomoTex | Uniformes Corporativos Premium",
