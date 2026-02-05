@@ -313,7 +313,7 @@ export default function LandingPage() {
               className="text-center max-w-2xl mx-auto mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Soluções Personalizadas</h2>
-              <p className="text-gray-600">Técnicas avançadas que valorizam sua marca em cada ponto e cor.</p>
+              <p className="text-gray-600">Soluções de uniformes pensadas para diferentes rotinas de trabalho.<br />Escolha a linha ideal para a realidade da sua empresa.</p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -324,16 +324,16 @@ export default function LandingPage() {
                 >
                   <div className="absolute inset-0 bg-gray-200">
                     <Image
-                      src="/assets/camisa01.jpeg"
-                      alt="Detalhe de manga oversized"
+                      src="/assets/firstshirt.jpeg"
+                      alt="Uniforme Profissional Operacional"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80" />
                   </div>
                   <div className="absolute bottom-0 p-8 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Básica Oversized</h3>
-                    <p className="opacity-90 mb-4 text-sm text-gray-200">Corte moderno e confortável para o dia a dia corporativo.</p>
+                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Uniforme Profissional Operacional</h3>
+                    <p className="opacity-90 mb-4 text-sm text-gray-200">Ideal para ambientes produtivos e equipes ativas.</p>
                     <div className="flex items-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                       Ver detalhes <ArrowRight size={16} className="ml-2" />
                     </div>
