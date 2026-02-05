@@ -49,7 +49,29 @@ export default function LandingPage() {
   // Carousel Component
   function CarouselSection() {
     const [currentSlide, setCurrentSlide] = useState(0)
-    const images = ["/camisa.png", "/camisa2.png", "/camisa3.png", "/camisa3.png"]
+    const [isLoading, setIsLoading] = useState(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const images = [
+      "/assets/case01.jpeg",
+      "/assets/case02.jpeg",
+      "/assets/case03.jpeg",
+      "/assets/case04.jpeg",
+      "/assets/case05.jpeg",
+      "/assets/case06.jpeg",
+      "/assets/case07.jpeg"
+    ]
+
+    // Preload next image
+    useEffect(() => {
+      const nextIdx = (currentSlide + 1) % images.length
+      if (typeof window !== 'undefined') {
+        const link = document.createElement('link')
+        link.rel = 'prefetch'
+        link.as = 'image'
+        link.href = images[nextIdx]
+        document.head.appendChild(link)
+      }
+    }, [currentSlide, images])
 
     const nextSlide = () => {
       setCurrentSlide((prev) => (prev + 1) % images.length)
@@ -65,24 +87,23 @@ export default function LandingPage() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.4 }}
-        className="relative w-full max-w-2xl mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gray-100"
+        className="relative w-full max-w-xl mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gray-100"
       >
-        {/* Image Container */}
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="w-full h-full"
-        >
+        {/* Skeleton Loader */}
+        {isLoading && (
+          <div className="absolute inset-0 bg-gray-300 animate-pulse z-10" />
+        )}
+
           <Image
             src={images[currentSlide]}
-            alt={`Uniforme ${currentSlide + 1}`}
+            alt={`Case ${currentSlide + 1}`}
             fill
             className="object-cover"
             sizes="100vw"
+            priority={currentSlide === 0}
+            onLoadingComplete={() => setIsLoading(false)}
+            onLoadStart={() => setIsLoading(true)}
           />
-        </motion.div>
 
         {/* Left Arrow */}
         <button
@@ -129,8 +150,14 @@ export default function LandingPage() {
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/" className="font-bold text-2xl tracking-tighter">
-            komotex<span className="text-black">.</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/assets/logoNoBackgroundBlack.png"
+              alt="Komotex Logo"
+              width={80}
+              height={28}
+              className="object-contain"
+            />
           </Link>
 
           <Button className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
@@ -176,7 +203,7 @@ export default function LandingPage() {
           {/* Parallax T-shirt - Absolute */}
           <motion.div 
             style={{ y: camisaY }}
-            className="absolute -bottom-120 md:-bottom-200 left-1/2 -translate-x-1/2 size-150 md:size-275 pointer-events-none z-40"
+            className="absolute -bottom-120 md:-bottom-220 left-1/2 -translate-x-1/2 size-150 md:size-275 pointer-events-none z-40"
           >
             <Image
               src="/hero-tshirt.png"
@@ -226,16 +253,16 @@ export default function LandingPage() {
 
         {/* Value Proposition Section */}
         <section id="sobre" className="py-24 bg-white relative">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="container mx-auto px-4 md:px-6 ">
+            <div className="grid md:grid-cols-2 gap-16 items-center justify-center">
               <motion.div 
                 {...fadeInUp}
                 transition={{ duration: 0.8 }}
-                className="relative h-125 md:h-175 rounded-2xl overflow-hidden"
+                className="relative aspect-square rounded-2xl overflow-hidden max-h-125 shadow-lg "
               >
                   <Image
-                    src="/camisa2.png" 
-                    alt="Tecido tecnológico Komotex flutuando"
+                    src="/assets/showcase02.jpg" 
+                    alt="Uniforme de qualidade Komotex"
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-700"
                   />
@@ -297,7 +324,7 @@ export default function LandingPage() {
                 >
                   <div className="absolute inset-0 bg-gray-200">
                     <Image
-                      src="/camisa3.png"
+                      src="/assets/camisa01.jpeg"
                       alt="Detalhe de manga oversized"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -305,7 +332,7 @@ export default function LandingPage() {
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-80" />
                   </div>
                   <div className="absolute bottom-0 p-8 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Oversized Basic</h3>
+                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Básica Oversized</h3>
                     <p className="opacity-90 mb-4 text-sm text-gray-200">Corte moderno e confortável para o dia a dia corporativo.</p>
                     <div className="flex items-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                       Ver detalhes <ArrowRight size={16} className="ml-2" />
@@ -320,7 +347,7 @@ export default function LandingPage() {
                 >
                   <div className="absolute inset-0 bg-gray-900">
                     <Image
-                      src="/camisa2.png"
+                      src="/assets/showcase03.jpg"
                       alt="Camiseta Executive Line"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -328,7 +355,7 @@ export default function LandingPage() {
                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
                   </div>
                    <div className="absolute bottom-0 p-8 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Executive Line</h3>
+                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Linha Executiva</h3>
                     <p className="opacity-90 mb-4 text-sm text-gray-200">Sofisticação para lideranças e times comerciais.</p>
                     <div className="flex items-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                       Ver detalhes <ArrowRight size={16} className="ml-2" />
@@ -343,7 +370,7 @@ export default function LandingPage() {
                 >
                   <div className="absolute inset-0 bg-gray-900">
                      <Image
-                      src="/camisa.png"
+                      src="/assets/showcase01.jpg"
                       alt="Camiseta Tech Performance"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -351,7 +378,7 @@ export default function LandingPage() {
                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
                   </div>
                   <div className="absolute bottom-0 p-8 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Tech Performance</h3>
+                    <h3 className="text-2xl font-bold mb-2 tracking-tighter">Linha Básica</h3>
                     <p className="opacity-90 mb-4 text-sm text-gray-200">Tecidos inteligentes que não precisam passar.</p>
                     <div className="flex items-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                       Ver detalhes <ArrowRight size={16} className="ml-2" />
@@ -362,9 +389,225 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Carousel Section */}
-        <section className="py-24 bg-gray-50">
+        {/* Processes Section */}
+        <section id="processos" className="py-24 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
+            <motion.div 
+              {...fadeInUp}
+              className="text-center max-w-2xl mx-auto mb-16"
+            >
+              <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-black uppercase bg-gray-100 rounded-full">
+                Tecnologia de Ponta
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Nossos Processos</h2>
+              <p className="text-gray-600">Conheça as diferentes técnicas de personalização que elevam seus uniformes ao próximo nível.</p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Process 1 - Serigrafia */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg flex flex-col"
+              >
+                <div className="p-8 flex-1">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
+                    01
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 tracking-tighter">Impressão em Tela (Serigrafia)</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Método tradicional de estamparia, onde a tinta é aplicada através de uma tela com o desenho. Ideal para designs bold e cores vibrantes.
+                  </p>
+                </div>
+                <div className="px-8 pb-8">
+                  <div className="relative w-full h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/assets/serigrafia.jpg"
+                      alt="Impressão em Tela"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Process 2 - Bordado */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg flex flex-col"
+              >
+                <div className="p-8 flex-1">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
+                    02
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 tracking-tighter">Bordado</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Personalização usando linhas para costurar o desenho diretamente na peça. Transmite sofisticação e durabilidade excepcional.
+                  </p>
+                </div>
+                <div className="px-8 pb-8">
+                  <div className="relative w-full h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/assets/bordado.webp"
+                      alt="Bordado"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Process 3 - DTF */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg flex flex-col"
+              >
+                <div className="p-8 flex-1">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
+                    03
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 tracking-tighter">Impressão Digital (DTF)</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Impressão do desenho em um filme especial, depois transferido para o tecido com o calor. Perfeito para designs complexos e detalhados.
+                  </p>
+                </div>
+                <div className="px-8 pb-8">
+                  <div className="relative w-full h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/assets/digital.jpg"
+                      alt="Impressão Digital DTF"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Process 4 - DTG */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="group bg-white rounded-2xl shadow-sm hover:shadow-lg flex flex-col"
+              >
+                <div className="p-8 flex-1">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-xl mb-4">
+                    04
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 tracking-tighter">Impressão Direta (DTG)</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Impressora especial que aplica a tinta diretamente no tecido, igual uma impressora de papel. Resultado fotográfico com máxima qualidade.
+                  </p>
+                </div>
+                <div className="px-8 pb-8">
+                  <div className="relative w-full h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/assets/dtg.webp"
+                      alt="Impressão Direta DTG"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* 3 Steps Section */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div 
+              {...fadeInUp}
+              className="text-center max-w-2xl mx-auto mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Como Funciona</h2>
+              <p className="text-gray-600">Três etapas simples para transformar sua visão em uniformes de qualidade premium.</p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {/* Step 1 - Blanks */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="relative"
+              >
+                <div className="bg-gray-50 rounded-2xl p-8 h-full">
+                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg">
+                    1
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Blanks</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Na primeira etapa, oferecemos peças lisas em diversas opções de cores e estilos. Com uma quantidade mínima de apenas 12 peças por modelo e um prazo de produção rápido de dois dias úteis, você pode começar a personalizar suas peças facilmente.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Step 2 - Personalização */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.2 }}
+                className="relative md:mt-8"
+              >
+                <div className="bg-linear-to-br from-[#041723] to-[#08455b] rounded-2xl p-8 h-full text-white shadow-lg">
+                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#041723] font-bold text-3xl mb-6">
+                    2
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Personalização</h3>
+                  <p className="leading-relaxed">
+                    Nesta etapa, você pode transformar os blanks em peças únicas que refletem a sua marca, utilizando serviços de serigrafia, bordado, DTF e aplicações. Com uma quantidade mínima de 30 peças por modelo e um prazo de produção de apenas 15 dias, a personalização se torna fácil e rápida.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Step 3 - Desenvolvimento */}
+              <motion.div 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                transition={{ delay: 0.4 }}
+                className="relative"
+              >
+                <div className="bg-gray-50 rounded-2xl p-8 h-full">
+                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg">
+                    3
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Desenvolvimento</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Nesta fase, oferecemos o desenvolvimento completo de coleções, utilizando técnicas como pesquisa de tendências, modelagem, plotagem, corte, costura, tingimento e aplicações. Com uma quantidade mínima de 100 peças por modelo e prazos de produção eficientes, sua visão se tornará realidade em pouco tempo.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Carousel Section */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            
+            <motion.div 
+              {...fadeInUp}
+              className="text-center max-w-2xl mx-auto mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Nossos Cases de Sucesso</h2>
+              <p className="text-gray-600">Conheça empresas que já vestem nossa qualidade e fortalecem sua marca com nossos uniformes personalizados.</p>
+            </motion.div>
 
             {/* Carousel with State */}
             <CarouselSection />
@@ -405,7 +648,6 @@ export default function LandingPage() {
                 alt="Background"
                 fill
                 className="object-cover"
-                quality={100}
               />
               {/* Dark overlay for text readability */}
               <div className="absolute inset-0 bg-black/40"></div>
@@ -435,8 +677,14 @@ export default function LandingPage() {
       <footer className="bg-gray-50 py-12 border-t border-gray-100">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-2xl font-bold tracking-tighter">
-              komotex<span className="text-black">.</span>
+            <div>
+              <Image
+                src="/assets/logoNoBackgroundBlack.png"
+                alt="Komotex Logo"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
             </div>
             
             <div className="text-sm text-gray-500 text-center md:text-left">
