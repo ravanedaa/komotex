@@ -160,8 +160,10 @@ export default function LandingPage() {
             />
           </Link>
 
-          <Button className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
-            Solicitar orçamento agora
+          <Button asChild className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
+            <a href="https://wa.me/5547997225737" target="_blank" rel="noopener noreferrer">
+              Solicitar orçamento agora
+            </a>
           </Button>
         </div>
       </header>
@@ -193,8 +195,15 @@ export default function LandingPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
-                <Button className="rounded-full text-lg px-8 py-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] text-white font-unbounded">
-                  Solicitar orçamento agora <ArrowRight className="ml-2 w-5 h-5" />
+                <Button asChild className="rounded-full text-base sm:text-lg px-6 sm:px-8 py-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] text-white font-unbounded whitespace-nowrap">
+                  <a href="https://wa.me/5547997225737" target="_blank" rel="noopener noreferrer">
+                    Solicitar orçamento agora <ArrowRight className="ml-2 w-5 h-5" />
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full text-base sm:text-lg px-6 sm:px-8 py-6 border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 font-unbounded whitespace-nowrap">
+                  <a href="https://www.komotex.com.br/passwordp" target="_blank" rel="noopener noreferrer">
+                    Ver catálogo
+                  </a>
                 </Button>
               </div>
             </div>
@@ -547,9 +556,9 @@ export default function LandingPage() {
                   <div className="w-16 h-16 rounded-full bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg">
                     1
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Blanks</h3>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Escolha das peças ideais</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Na primeira etapa, oferecemos peças lisas em diversas opções de cores e estilos. Com uma quantidade mínima de apenas 12 peças por modelo e um prazo de produção rápido de dois dias úteis, você pode começar a personalizar suas peças facilmente.
+                    Definimos os modelos certos para sua operação, considerando conforto, durabilidade e uso diário. Você começa com a base certa, sem erro.
                   </p>
                 </div>
               </motion.div>
@@ -567,9 +576,9 @@ export default function LandingPage() {
                   <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#041723] font-bold text-3xl mb-6">
                     2
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Personalização</h3>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Personalização que valoriza sua marca</h3>
                   <p className="leading-relaxed">
-                    Nesta etapa, você pode transformar os blanks em peças únicas que refletem a sua marca, utilizando serviços de serigrafia, bordado, DTF e aplicações. Com uma quantidade mínima de 30 peças por modelo e um prazo de produção de apenas 15 dias, a personalização se torna fácil e rápida.
+                    Aplicamos sua identidade com técnicas profissionais que garantem acabamento limpo, alta resistência e padrão visual em todas as peças.
                   </p>
                 </div>
               </motion.div>
@@ -587,9 +596,9 @@ export default function LandingPage() {
                   <div className="w-16 h-16 rounded-full bg-linear-to-br from-[#041723] to-[#08455b] flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg">
                     3
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Desenvolvimento</h3>
+                  <h3 className="text-2xl font-bold mb-4 tracking-tighter">Solução completa para sua empresa</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Nesta fase, oferecemos o desenvolvimento completo de coleções, utilizando técnicas como pesquisa de tendências, modelagem, plotagem, corte, costura, tingimento e aplicações. Com uma quantidade mínima de 100 peças por modelo e prazos de produção eficientes, sua visão se tornará realidade em pouco tempo.
+                    Cuidamos de todo o processo, do projeto à entrega final, para que sua equipe esteja uniformizada com qualidade e consistência.
                   </p>
                 </div>
               </motion.div>
@@ -712,8 +721,10 @@ export default function LandingPage() {
                   Solicite um orçamento personalizado hoje e garanta condições exclusivas para pedidos empresariais.
                 </p>
                 <div className="flex justify-center">
-                  <Button className="h-14 rounded-full bg-white text-gray-950 hover:bg-gray-100 text-lg px-8 font-bold transition-all hover:scale-105 font-unbounded">
-                    Solicitar orçamento agora
+                  <Button asChild className="h-14 rounded-full bg-white text-gray-950 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 font-bold transition-all hover:scale-105 font-unbounded whitespace-nowrap">
+                    <a href="https://wa.me/5547997225737" target="_blank" rel="noopener noreferrer">
+                      Solicitar orçamento agora
+                    </a>
                   </Button>
                 </div>
               </motion.div>
