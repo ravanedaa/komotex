@@ -613,6 +613,54 @@ export default function LandingPage() {
             <CarouselSection />
           </div>
         </section>
+
+        {/* Trusted Clients Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div 
+              {...fadeInUp}
+              className="text-center max-w-2xl mx-auto mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Empresas que Confiam em Nós</h2>
+              <p className="text-gray-600">Marcas que já escolheram nossos uniformes para fortalecer sua identidade visual.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center"
+            >
+              {[
+                "/assets/trusted/trusted01.png",
+                "/assets/trusted/trusted02.png",
+                                   "/assets/trusted/conline.png",
+
+                "/assets/trusted/trusted04.png",
+                "/assets/trusted/trusted05.webp",
+                             "/assets/trusted/drogaria.png",
+
+                "/assets/trusted/trusted07.png",
+                "/assets/trusted/trusted08.jpeg",
+                                "/assets/trusted/trusted09.png",
+
+              ].map((logo, index) => (
+                <div 
+                  key={index} 
+                  className="relative h-16 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                >
+                  <Image
+                    src={logo}
+                    alt={`Cliente ${index + 1}`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
         
         {/* Testimonials / Trust or Stats */}
         <section id="diferenciais" className="py-20 bg-black text-white">
@@ -694,10 +742,10 @@ export default function LandingPage() {
             </div>
             
             <div className="flex gap-6">
-              <a href="#" className="text-gray-500 hover:text-black transition-colors opacity-70 hover:opacity-100" aria-label="Instagram">
+              <a href="https://www.instagram.com/komo.tex/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black transition-colors opacity-70 hover:opacity-100" aria-label="Instagram">
                 <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-black transition-colors opacity-70 hover:opacity-100" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/komotex/?originalSubdomain=br" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black transition-colors opacity-70 hover:opacity-100" aria-label="LinkedIn">
                 <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} />
               </a>
               <a href="#" className="text-gray-500 hover:text-black transition-colors opacity-70 hover:opacity-100" aria-label="WhatsApp">
