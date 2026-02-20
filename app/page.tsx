@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Check, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
@@ -46,98 +46,6 @@ export default function LandingPage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Carousel Component
-  function CarouselSection() {
-    const [currentSlide, setCurrentSlide] = useState(0)
-    const [isLoading, setIsLoading] = useState(true)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const images = [
-      "/assets/case01.jpeg",
-      "/assets/case02.jpeg",
-      "/assets/case03.jpeg",
-      "/assets/case04.jpeg",
-      "/assets/case05.jpeg",
-      "/assets/case06.jpeg",
-      "/assets/case07.jpeg"
-    ]
-
-    // Preload next image
-    useEffect(() => {
-      const nextIdx = (currentSlide + 1) % images.length
-      if (typeof window !== 'undefined') {
-        const link = document.createElement('link')
-        link.rel = 'prefetch'
-        link.as = 'image'
-        link.href = images[nextIdx]
-        document.head.appendChild(link)
-      }
-    }, [currentSlide, images])
-
-    const nextSlide = () => {
-      setCurrentSlide((prev) => (prev + 1) % images.length)
-    }
-
-    const prevSlide = () => {
-      setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)
-    }
-
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.4 }}
-        className="relative w-full max-w-xl mx-auto aspect-square rounded-3xl overflow-hidden shadow-2xl bg-gray-100"
-      >
-        {/* Skeleton Loader */}
-        {isLoading && (
-          <div className="absolute inset-0 bg-gray-300 animate-pulse z-10" />
-        )}
-
-          <Image
-            src={images[currentSlide]}
-            alt={`Case ${currentSlide + 1}`}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority={currentSlide === 0}
-            onLoadingComplete={() => setIsLoading(false)}
-            onLoadStart={() => setIsLoading(true)}
-          />
-
-        {/* Left Arrow */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all hover:scale-110"
-        >
-          <ChevronLeft size={24} className="text-black" />
-        </button>
-
-        {/* Right Arrow */}
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all hover:scale-110"
-        >
-          <ChevronRight size={24} className="text-black" />
-        </button>
-
-        {/* Navigation Dots */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-          {images.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={cn(
-                "w-3 h-3 rounded-full transition-all shadow-lg",
-                currentSlide === idx ? "bg-white" : "bg-white/50 hover:bg-white"
-              )}
-            />
-          ))}
-        </div>
-      </motion.div>
-    )
-  }
-
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
@@ -160,7 +68,7 @@ export default function LandingPage() {
             />
           </Link>
 
-          <Button asChild className="rounded-full px-6 bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
+          <Button asChild className="rounded-full px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 text-xs sm:text-sm md:text-base whitespace-nowrap bg-linear-to-r from-[#041723] to-[#08455b] hover:from-[#03111a] hover:to-[#06354a] font-unbounded">
             <a href="https://wa.me/5547997225737" target="_blank" rel="noopener noreferrer">
               Solicitar orçamento agora
             </a>
@@ -606,67 +514,86 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Carousel Section */}
-        <section className="py-24 bg-white">
+        {/* Unified Trust Section */}
+        <section className="py-24 bg-white overflow-hidden">
           <div className="container mx-auto px-4 md:px-6">
             
             <motion.div 
               {...fadeInUp}
-              className="text-center max-w-2xl mx-auto mb-16"
+              className="text-center max-w-4xl mx-auto mb-16"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Nossos Cases de Sucesso</h2>
-              <p className="text-gray-600">Conheça empresas que já vestem nossa qualidade e fortalecem sua marca com nossos uniformes personalizados.</p>
+              <h2 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter text-[#041723]">Quem confia</h2>
             </motion.div>
 
-            {/* Carousel with State */}
-            <CarouselSection />
-          </div>
-        </section>
-
-        {/* Trusted Clients Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
+            {/* Showcase Images Grid */}
             <motion.div 
-              {...fadeInUp}
-              className="text-center max-w-2xl mx-auto mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tighter">Empresas que Confiam em Nós</h2>
-              <p className="text-gray-600">Marcas que já escolheram nossos uniformes para fortalecer sua identidade visual.</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
             >
-              {[
-                "/assets/trusted/trusted01.png",
-                "/assets/trusted/trusted02.png",
-                                   "/assets/trusted/conline.png",
-
-                "/assets/trusted/trusted04.png",
-                "/assets/trusted/trusted05.webp",
-                             "/assets/trusted/drogaria.png",
-
-                "/assets/trusted/trusted07.png",
-                "/assets/trusted/trusted08.jpeg",
-                                "/assets/trusted/trusted09.png",
-
-              ].map((logo, index) => (
-                <div 
-                  key={index} 
-                  className="relative h-16 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
-                >
+               {/* Case 1 */}
+               <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden group">
                   <Image
-                    src={logo}
-                    alt={`Cliente ${index + 1}`}
+                    src="/assets/case01.jpeg"
+                    alt="Case 1"
                     fill
-                    className="object-contain"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                </div>
-              ))}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+               </div>
+               
+               {/* Case 2 */}
+               <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden group">
+                  <Image
+                    src="/assets/case02.jpeg"
+                    alt="Case 2"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                   <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+               </div>
+
+               {/* Case 3 */}
+               <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden group">
+                  <Image
+                    src="/assets/case03.jpeg"
+                    alt="Case 3"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                   <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+               </div>
+
+                {/* Case 4 */}
+               <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden group">
+                  <Image
+                    src="/assets/case04.jpeg"
+                    alt="Case 4"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                   <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+               </div>
+            </motion.div>
+
+            {/* Trusted Logos Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full"
+            >
+              <Image
+                src="/assets/trusted/trusted16.png"
+                alt="Empresas que confiam na Komotex"
+                width={1200}
+                height={300}
+                className="w-full h-auto object-contain"
+                priority
+              />
             </motion.div>
           </div>
         </section>
