@@ -109,7 +109,7 @@ export default function LandingPage() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="rounded-full text-base sm:text-lg px-6 sm:px-8 py-6 border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 font-unbounded whitespace-nowrap">
-                  <a href="https://www.komotex.com.br/passwordp" target="_blank" rel="noopener noreferrer">
+                  <a href="https://catalogokomotex.my.canva.site/" target="_blank" rel="noopener noreferrer">
                     Ver catálogo
                   </a>
                 </Button>
